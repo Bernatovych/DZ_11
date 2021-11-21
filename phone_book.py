@@ -7,7 +7,7 @@ class AddressBook(UserDict):
         self.data[record.name] = record
 
     def iterator(self, n):
-        data_list = list(self.data.items())
+        data_list = list(self.data.values())
         while data_list:
             for i in data_list[:n]:
                 yield i
@@ -51,7 +51,7 @@ class Record:
             print('Wrong date format!')
 
     def __repr__(self):
-        return f"{self.birthday} {self.phones}"
+        return f"{self.name} {self.birthday} {self.phones}"
 
 
 class Field:
