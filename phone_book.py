@@ -96,6 +96,8 @@ class Birthday(Field):
         except ValueError as e:
             print(e)
 
+if __name__ == '__main__':
+    pass
 
 name = Name('Sasha')
 phone = Phone('0236537890')
