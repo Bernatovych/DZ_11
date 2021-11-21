@@ -78,9 +78,19 @@ class Name(Field):
 class Phone(Field):
     def __init__(self, value):
         super().__init__(value)
+        self.__value = value
+        self.value = value
+
+    @property
+    def value(self):
+        return self.__value
+
+    @value.setter
+    def value(self, value):
+        self.__value = value
         if value.isdigit():
             if len(value) == 10:
-                self.value = value
+                self.__value = value
             else:
                 print('There should be 10 numbers!')
         else:
@@ -90,9 +100,19 @@ class Phone(Field):
 class Birthday(Field):
     def __init__(self, value):
         super().__init__(value)
+        self.__value = value
+        self.value = value
+
+    @property
+    def value(self):
+        return self.__value
+
+    @value.setter
+    def value(self, value):
+        self.__value = value
         try:
             s = datetime.strptime(value, '%Y-%m-%d').date()
-            self.value = s
+            self.__value = s
         except ValueError as e:
             print(e)
 
